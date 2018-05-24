@@ -23,7 +23,7 @@
     "url": "git://github.com/royaltm/node-murmurhash-native.git"
   },
   "scripts": {
-    "install": "node-pre-gyp install --fallback-to-build",
+    "install": "npm run rebuild",
     "test": "tap -C -Rclassic ./test/test*.js",
     "test-gc": "tap -Rspec ./test/persistent/test.gc.*.js -gc",
     "bench": "sh bench/bench.all.sh",
