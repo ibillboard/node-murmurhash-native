@@ -7,7 +7,6 @@ This library provides Austin Appleby's non-cryptographic "MurmurHash" hashing al
 [![Node][Node img]][NPM Status]
 [![Travis][Travis img]][Travis Status]
 [![AppVeyor][AppVeyor img]][AppVeyor Status]
-[![bitHound][bitHound img]][bitHound Status]
 [![License][License img]][License Link]
 
 Key features:
@@ -19,6 +18,7 @@ Key features:
 * BE or LE byte order variants of hashes
 * promise wrapper
 * prebuilt binaries for most standard system configurations
+* TypeScript declarations ([docs][typescript-docs])
 
 Install:
 --------
@@ -45,6 +45,11 @@ To reinstall prebuilt binary (e.g. after switching between major nodejs versions
 ```
 npm rebuild --update-binary
 ```
+
+TypeScript
+----------
+
+`murmurhash-native` is [ready][typescript-docs] for the TypeScript without any external declarations. However this module is node-specific package, if you're going to use it in TypeScript, do not forget to include `@types/node` and enable `es2015` language features in your `tsconfig.json`.
 
 Make a hash:
 ------------
@@ -94,14 +99,16 @@ and they share the following signature:
 ```js
 murmurHash(data[, callback])
 murmurHash(data, output[, offset[, length]][, callback])
-murmurHash(data{String}, encoding|output_type[, callback])
-murmurHash(data, output_type[, seed][, callback])
-murmurHash(data, seed[, output[, offset[, length]]][, callback])
-murmurHash(data, seed[, output_type][, callback])
+murmurHash(data{string}, encoding|output_type[, seed][, callback])
+murmurHash(data{Buffer}, output_type[, seed][, callback])
+murmurHash(data, seed[, callback])
+murmurHash(data, seed, output[, offset[, length]][, callback])
+murmurHash(data, seed, output_type[, callback])
 murmurHash(data, encoding, output_type[, callback])
-murmurHash(data{String}, encoding, output[, offset[, length]][, callback])
-murmurHash(data{String}, encoding, seed[, output[, offset[, length]]][, callback])
-murmurHash(data{String}, encoding, seed[, output_type][, callback])
+murmurHash(data{string}, encoding, output[, offset[, length]][, callback])
+murmurHash(data{string}, encoding, seed[, callback])
+murmurHash(data{string}, encoding, seed, output[, offset[, length]][, callback])
+murmurHash(data{string}, encoding, seed, output_type[, callback])
 ```
 
 * `@param` `{string|Buffer}` `data` - a byte-string to calculate hash from
@@ -292,7 +299,7 @@ The hash functions optimized for x64 and x86 produce different results.
 
 Tested on Linux (x64), OS X (x64) and MS Windows (x64 and x86).
 
-Tested with nodejs: v4, v5, v6, v7, v8 and v9.
+Tested with nodejs: v4, v5, v6, v7, v8, v9, v10 and v11.
 
 [Travis Status]: https://travis-ci.org/royaltm/node-murmurhash-native
 [Travis img]: https://img.shields.io/travis/royaltm/node-murmurhash-native.svg?maxAge=86400&style=flat-square&label=unix
@@ -304,7 +311,6 @@ Tested with nodejs: v4, v5, v6, v7, v8 and v9.
 [License img]: https://img.shields.io/npm/l/murmurhash-native.svg?maxAge=2592000&style=flat-square
 [License Link]: https://opensource.org/licenses/MIT
 [bitHound img]: https://img.shields.io/bithound/dependencies/github/royaltm/node-murmurhash-native.svg?maxAge=86400&style=flat-square
-[bitHound Status]: https://www.bithound.io/github/royaltm/node-murmurhash-native
 [murmurhash3js]: https://www.npmjs.com/package/murmurhash3js
 [PMurHash]: https://github.com/aappleby/smhasher/blob/master/src/PMurHash.c
 [crypto.Hash]: https://nodejs.org/dist/latest-v6.x/docs/api/crypto.html#crypto_class_hash
@@ -312,3 +318,4 @@ Tested with nodejs: v4, v5, v6, v7, v8 and v9.
 [node-pre-gyp-github]: https://github.com/bchr02/node-pre-gyp-github
 [releases]: https://github.com/royaltm/node-murmurhash-native/releases
 [node-gyp-install]: https://github.com/nodejs/node-gyp#installation
+[typescript-docs]: http://royaltm.github.io/node-murmurhash-native/globals.html

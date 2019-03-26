@@ -1,3 +1,22 @@
+v3.3.0
+
+* TypeScript declarations, documentation and tests
+* bump bluebird to 3.5.3, commander to 2.19.0 and tap to 12.1.0
+* added development dependencies: typescript, @types, typedoc and typedoc plugins
+
+v3.2.5
+
+* bump node-pre-gyp to 0.11.0, nan to 2.11.1 and tap to 12.0.1
+* adapt async uncaughtException tests to tap 12
+* test and release binaries for node v11
+* suppress v8 deprecation warnings from nan
+
+v3.2.4
+
+* bump node-pre-gyp to 0.10.3, commander to 2.17
+* test and release binaries for nodejs v10
+* replaced deprecated Buffer factory api in tests and benches with the class methods
+
 v3.2.3
 
 * bump nan to 2.10, node-pre-gyp to 0.9.1, tap to 9, commander to 2.15
