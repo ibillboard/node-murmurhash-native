@@ -19,8 +19,9 @@ sftp-config.json
 /node_modules
 /tmp
 /build
-/lib
 *.o
 *.so
 .nyc_output
 *.tgz
+/lib
+/doc
